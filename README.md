@@ -26,8 +26,3 @@ License
 I haven't picked yet. Whatever it is, it will definitely be free for non-commercial use. Currently, I am considering releasing under the DWTFYWWI.
 
 If anyone has an opinion between now and when I decide please let me know. If you are going to use this in your own project and need me to make a decision just shoot me a message/open an issue.
-
-Why?
-----
-
-I initially needed a signature capture for a project I was working on and found a bunch of options being sold online. Considering how simple the code was to write myself, I decided I would share it.
