@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CustomViews</string>
+    <string name="title_activity_main">MainActivity</string>
+    
+    <string name="sign">You can sign below:</string>
+    <string name="ok">OK</string>
 </resources>
