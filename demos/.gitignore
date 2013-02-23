@@ -1,0 +1,7 @@
+# swap files
+*.swp
+# ignore generated files
+bin/
+gen/
+.classpath
+.project
