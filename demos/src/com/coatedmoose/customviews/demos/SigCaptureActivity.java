@@ -1,8 +1,7 @@
 package com.coatedmoose.customviews.demos;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.os.Bundle;
 import android.util.Log;
 
 import com.coatedmoose.customviews.SignatureView;
