@@ -51,7 +51,7 @@ public class SignatureView extends View {
 
 	private void init() {
 		setFocusable(true);
-		bgColor = Color.BLACK;
+		bgColor = Color.WHITE;
 		mPath = new Path();
 		mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		mPaint.setColor(bgColor ^ 0x00FFFFFF);
