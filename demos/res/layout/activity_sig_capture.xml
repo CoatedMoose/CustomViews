@@ -6,6 +6,7 @@
 	
 	<com.coatedmoose.customviews.SignatureView
 		android:id="@+id/signview"
+		android:background="#654879"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent" />
 

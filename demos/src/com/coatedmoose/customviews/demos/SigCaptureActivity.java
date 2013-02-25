@@ -1,6 +1,7 @@
 package com.coatedmoose.customviews.demos;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -15,8 +16,6 @@ public class SigCaptureActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sig_capture);
 		SignatureView sigView = (SignatureView) findViewById(R.id.signview);
-		int h = sigView.getHeight();
-		int w = sigView.getWidth();
-		Log.d(TAG, "height: "+h+", width: "+w);
+		sigView.setSigColor(Color.RED);
     }    
 }
