@@ -28,6 +28,7 @@ public class SignatureView extends View {
 	private Paint mPaint;
 	private Bitmap mBitmap;
 	private Canvas mCanvas;
+	private int bgColor;
 
 	private float curX, curY;
 
@@ -49,9 +50,10 @@ public class SignatureView extends View {
 
 	private void init() {
 		setFocusable(true);
+		bgColor = Color.BLACK;
 		mPath = new Path();
 		mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		mPaint.setColor(Color.BLACK);
+		mPaint.setColor(bgColor);
 		mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(STROKE_WIDTH);
 	}
@@ -73,6 +75,25 @@ public class SignatureView extends View {
 	 */
 	public void setSigColor(int a, int r, int g, int b) {
 		mPaint.setARGB(a, r, g, b);
+	}
+
+	/**
+	 * Set the background color.
+	 * @param color the hex representation of the background color, likely an instance of Color.*
+	 */
+	public void setBackgroundColor(int color) {
+		bgColor = color;
+	}
+	
+	/**
+	 * Set the background color
+	 * @param a alpha value
+	 * @param r red value
+	 * @param g green value
+	 * @param b blue value\
+	 */
+	public void setBackgroundColor(int a, int r, int g, int b) {
+		bgColor = Color.argb(a, r, g, b);
 	}
 
 	public void clearSig() {
@@ -119,7 +140,7 @@ public class SignatureView extends View {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-		canvas.drawColor(Color.BLACK);
+		canvas.drawColor(bgColor);
 		canvas.drawBitmap(mBitmap, 0, 0, mPaint);
 		canvas.drawPath(mPath, mPaint);
 	}
