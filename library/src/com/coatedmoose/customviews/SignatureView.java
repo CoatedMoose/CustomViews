@@ -10,7 +10,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -78,25 +77,6 @@ public class SignatureView extends View {
 		mPaint.setARGB(a, r, g, b);
 	}
 
-	/**
-	 * Set the background color.
-	 * @param color the hex representation of the background color, likely an instance of Color.*
-	 */
-	public void setBackgroundColor(int color) {
-		bgColor = color;
-	}
-	
-	/**
-	 * Set the background color
-	 * @param a alpha value
-	 * @param r red value
-	 * @param g green value
-	 * @param b blue value\
-	 */
-	public void setBackgroundColor(int a, int r, int g, int b) {
-		bgColor = Color.argb(a, r, g, b);
-	}
-
     /**
      * Clear the view
      */
@@ -133,7 +113,7 @@ public class SignatureView extends View {
 		if (bitH < h) bitH = h;
 
 		// create a new bitmap and canvas for the new size
-		Bitmap newBitmap = Bitmap.createBitmap(bitW, bitH, Bitmap.Config.RGB_565);
+		Bitmap newBitmap = Bitmap.createBitmap(bitW, bitH, Bitmap.Config.ARGB_8888);
 		Canvas newCanvas = new Canvas();
 		newCanvas.setBitmap(newBitmap);
 		// If the old bitmap exists, redraw it onto the new bitmap
@@ -147,7 +127,6 @@ public class SignatureView extends View {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-		canvas.drawColor(bgColor);
 		canvas.drawBitmap(mBitmap, 0, 0, mPaint);
 		canvas.drawPath(mPath, mPaint);
 	}
