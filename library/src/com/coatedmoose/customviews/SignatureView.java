@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -53,7 +54,7 @@ public class SignatureView extends View {
 		bgColor = Color.BLACK;
 		mPath = new Path();
 		mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		mPaint.setColor(bgColor);
+		mPaint.setColor(bgColor ^ 0x00FFFFFF);
 		mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(STROKE_WIDTH);
 	}
@@ -96,15 +97,21 @@ public class SignatureView extends View {
 		bgColor = Color.argb(a, r, g, b);
 	}
 
+    /**
+     * Clear the view
+     */
 	public void clearSig() {
 		if (mCanvas != null) {
-			mCanvas.drawColor(Color.WHITE);
+			mCanvas.drawColor(bgColor);
 			mCanvas.drawPaint(mPaint);
 			mPath.reset();
 			invalidate();
 		}
 	}
 
+    /**
+     * Get the bitmap backing the view.
+     */
     public Bitmap getImage() {
         return this.mBitmap;
     }
