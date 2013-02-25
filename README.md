@@ -13,12 +13,14 @@ A view to capture an input signature. Can be used on its own, or part of a dialo
 Usage
 -----
 
-I am using the SignatureView as part of a dialog box myself. It should work as part of any view though.
+I am using the SignatureView as part of a dialog box myself. The demo code supplied uses it as part of another layout.
 
 Install
 -------
 
-For now, just compile it as a library, drop it into your libs folder and add it to your build path. I will put together a real build script at some point.
+To build the library, run `ant jar` in the library directory, then copy the jar from `library/bin/customviews.jar` into your `libs` directory.
+
+Demo should build just fine as an eclipse project, or using standard android ant targets, IE. `ant debug`.
 
 License
 -------
