@@ -90,7 +90,7 @@
     <import file="${sdk.dir}/tools/ant/build.xml" />
     <target name="jar" depends="debug">
         <jar
-            destfile="bin/whatever-you-want-to-call-the.jar"
+            destfile="bin/customviews.jar"
             basedir="bin/classes"
             />
     </target>
