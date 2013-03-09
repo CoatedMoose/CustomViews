@@ -31,6 +31,7 @@ public class SignatureView extends View {
 	private int bgColor;
 
 	private float curX, curY;
+    private boolean isDragged = false;
 
 	private static final int TOUCH_TOLERANCE = 4;
     private static final int STROKE_WIDTH = 2;
@@ -161,6 +162,7 @@ public class SignatureView extends View {
 		mPath.moveTo(x, y);
 		curX = x;
 		curY = y;
+        isDragged = false;
 	}
 
 	private void touchMove(float x, float y) {
@@ -170,11 +172,16 @@ public class SignatureView extends View {
 			mPath.quadTo(curX, curY, (x + curX)/2, (y + curY)/2);
 			curX = x;
 			curY = y;
+            isDragged = true;
 		}
 	}
 
 	private void touchUp() {
-		mPath.lineTo(curX, curY);
+        if (isDragged) {
+            mPath.lineTo(curX, curY);
+        } else {
+            mPath.lineTo(curX+2, curY+2);
+        }
 		mCanvas.drawPath(mPath, mPaint);
 		mPath.reset();
 	}
