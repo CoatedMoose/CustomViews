@@ -5,3 +5,6 @@ bin/
 gen/
 .classpath
 .project
+
+# ignore local configuration files
+local.properties
