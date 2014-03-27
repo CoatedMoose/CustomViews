@@ -79,7 +79,7 @@ public class SignatureView extends View {
 	}
 
 	/**
-	 * Clear the view
+     * Clear the signature from the view.
 	 */
 	public void clearSignature() {
 		if (mCanvas != null) {
@@ -90,6 +90,11 @@ public class SignatureView extends View {
 		}
 	}
 
+    /**
+     * Clear the signature from the view.
+     *
+     * @deprecated use {@link clearSignature()} instead (no need to shorten).
+     */
 	@Deprecated
 	public void clearSig() {
 		clearSignature();
