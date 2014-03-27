@@ -31,10 +31,10 @@ public class SignatureView extends View {
 	private int bgColor;
 
 	private float curX, curY;
-    private boolean isDragged = false;
+	private boolean isDragged = false;
 
 	private static final int TOUCH_TOLERANCE = 4;
-    private static final int STROKE_WIDTH = 2;
+	private static final int STROKE_WIDTH = 2;
 
 	public SignatureView(Context context) {
 		super(context);
@@ -56,7 +56,7 @@ public class SignatureView extends View {
 		mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		mPaint.setColor(bgColor ^ 0x00FFFFFF);
 		mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(STROKE_WIDTH);
+		mPaint.setStrokeWidth(STROKE_WIDTH);
 	}
 
 	/**
@@ -78,10 +78,10 @@ public class SignatureView extends View {
 		mPaint.setARGB(a, r, g, b);
 	}
 
-    /**
-     * Clear the view
-     */
-	public void clearSig() {
+	/**
+	 * Clear the view
+	 */
+	public void clearSignature() {
 		if (mCanvas != null) {
 			mCanvas.drawColor(bgColor);
 			mCanvas.drawPaint(mPaint);
@@ -90,12 +90,17 @@ public class SignatureView extends View {
 		}
 	}
 
-    /**
-     * Get the bitmap backing the view.
-     */
-    public Bitmap getImage() {
-        return this.mBitmap;
-    }
+	@Deprecated
+	public void clearSig() {
+		clearSignature();
+	}
+
+	/**
+	 * Get the bitmap backing the view.
+	 */
+	public Bitmap getImage() {
+		return this.mBitmap;
+	}
 
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -162,7 +167,7 @@ public class SignatureView extends View {
 		mPath.moveTo(x, y);
 		curX = x;
 		curY = y;
-        isDragged = false;
+		isDragged = false;
 	}
 
 	private void touchMove(float x, float y) {
@@ -172,16 +177,16 @@ public class SignatureView extends View {
 			mPath.quadTo(curX, curY, (x + curX)/2, (y + curY)/2);
 			curX = x;
 			curY = y;
-            isDragged = true;
+			isDragged = true;
 		}
 	}
 
 	private void touchUp() {
-        if (isDragged) {
-            mPath.lineTo(curX, curY);
-        } else {
-            mPath.lineTo(curX+2, curY+2);
-        }
+		if (isDragged) {
+			mPath.lineTo(curX, curY);
+		} else {
+			mPath.lineTo(curX+2, curY+2);
+		}
 		mCanvas.drawPath(mPath, mPaint);
 		mPath.reset();
 	}
