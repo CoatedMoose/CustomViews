@@ -84,7 +84,6 @@ public class SignatureView extends View {
 	public void clearSignature() {
 		if (mCanvas != null) {
 			mCanvas.drawColor(bgColor);
-			mCanvas.drawPaint(mPaint);
 			mPath.reset();
 			invalidate();
 		}
@@ -127,9 +126,11 @@ public class SignatureView extends View {
 		Bitmap newBitmap = Bitmap.createBitmap(bitW, bitH, Bitmap.Config.ARGB_8888);
 		Canvas newCanvas = new Canvas();
 		newCanvas.setBitmap(newBitmap);
-		// If the old bitmap exists, redraw it onto the new bitmap
-		if (mBitmap != null) {
-			newCanvas.drawBitmap(mBitmap, 0, 0, null);
+
+		if (mBitmap != null) {	// already have a bitmap
+			newCanvas.drawBitmap(mBitmap, 0, 0, null);	// redraw it onto the new bitmap
+		} else {				// no path yet
+			newCanvas.drawColor(bgColor);
 		}
 		// Replace the old bitmap and canvas with the new one
 		mBitmap = newBitmap;
