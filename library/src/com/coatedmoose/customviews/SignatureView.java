@@ -84,7 +84,7 @@ public class SignatureView extends View {
 	public void clearSignature() {
 		if (mCanvas != null) {
 			mCanvas.drawColor(bgColor);
-			mCanvas.drawPaint(mPaint);
+			//mCanvas.drawPaint(mPaint);
 			mPath.reset();
 			invalidate();
 		}
